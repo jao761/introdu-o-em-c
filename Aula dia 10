@@ -1,0 +1,81 @@
+Ex3
+
+#include <stdio.h>
+
+int main(){
+
+char genero;
+float altura;
+float peso;
+
+  printf("Digite o seu genero: ");
+  scanf("%c", &genero);
+  printf("Digite a sua altura: ");
+  scanf("%f", &altura);
+
+  if((genero == 'h') or (genero == 'H')) {
+    printf("Seu peso ideal é: %f",(72.7 * altura) - 58);
+  }
+  else{
+    printf("Seu peso ideal é: %f", (62.1 * altura) - 44.7);
+  }
+  
+    return 0;
+}
+
+Ex4
+
+
+#include <stdio.h>
+
+int main(){
+
+  int p, e, m;
+
+  printf("digite o peso do peixe: ");
+  scanf("%d", &p);
+  
+  if(p > 50){
+    e = p - 50;
+    printf("excesso de %2.d quilos ", e);
+    if(e > 0){
+      m = e * 4.00;
+      printf("multa de R$ %2.d", m);
+    }
+    }
+    else{
+      printf("não há excesso de peso");
+      }
+  return 0;
+}
+
+Exercicio swich case
+
+#include <stdio.h>
+
+int main(){
+  int opcao;
+
+printf("\n1.Domingo");
+printf("\n2.Segunda");
+printf("\n3.Terça");
+printf("\n4.Quarta");
+printf("\n5.Quinta");
+printf("\n6.Sexta");
+printf("\n7.Sabado");
+printf("\nDigite o dia da semana: ");
+scanf("%d", &opcao);
+
+switch(opcao){
+
+  case 1: printf("\n\nfinal de semana\n"); break;
+  case 2: printf("\n\ndia util\n"); break;
+  case 3: printf("\n\ndia util\n"); break;
+  case 4: printf("\n\ndia util\n"); break;
+  case 5: printf("\n\ndia util\n"); break;
+  case 6: printf("\n\ndia util\n"); break;
+  case 7: printf("\n\nfinal de semana\n"); break;
+  default: printf("\n\npção invalida\n"); break;
+}
+  return 0;
+}
