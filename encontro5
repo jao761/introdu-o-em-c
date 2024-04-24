@@ -16,19 +16,22 @@ return 0;
 ex2
   
 #include <stdio.h>
-int main() 
-{
 
-scanf("%d", &idade);
+int main() {
+    int idade, quociente, resto;
 
-  quociente = idade/4;
-  resto = idade%4;
-  printf("Sua idade dividida por 4 é: %i\n", quociente);
-  printf("O resto da divisão por 4 é: %d\n", resto);
+    printf("Digite sua idade: ");
+    scanf("%d", &idade);
 
-    
-return 0;
+    quociente = idade / 4;
+    resto = idade % 4;
+
+    printf("Sua idade dividida por 4 é: %d\n", quociente);
+    printf("O resto da divisão por 4 é: %d\n", resto);
+
+    return 0;
 }
+
 
 ex3
 #include <stdio.h>
