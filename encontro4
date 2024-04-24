@@ -1,3 +1,25 @@
+ex1
+#include <stdio.h>
+int main(){
+  char charactere;
+  int inteiro;
+  float flutuante;
+
+  printf("digite um charactere: ");
+  scanf("%c", &charactere);
+
+  printf("digite um inteiro: ");
+  scanf("%d", &inteiro);
+
+  printf("digite um flutuante: ");
+  scanf("%f", &flutuante);
+
+  printf("charactere: %c\n", charactere);
+  printf("inteiro: %d\n", inteiro);
+  printf("flutuante: %f\n", flutuante);
+}
+
+ex2
 #include <stdio.h>
 
 int main() {
