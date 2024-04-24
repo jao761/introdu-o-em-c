@@ -1,0 +1,86 @@
+ex1
+
+#include <stdio.h>
+
+int main(void) {
+  int num, maior = 0;
+  printf("Digite os número (0 para parar)");
+  do{
+  printf("Número: ");
+  scanf("%d", &num);
+  
+  if(num > maior){
+    maior = num;
+    printf("maior numero ate agora eh: %d\n", maior);
+  }
+}while(num != 0);
+  printf("O maior número é: %2.d", maior);
+  return 0;
+}
+
+ex2
+
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+
+  int quadros = 64; //numero de qaudros do tabuleiro
+  float total_graos = 0; //total de graos
+
+  int i = 1;//inicializamos contador de quadros
+
+  do{
+    float graos_quadros = pow(2, i-1); // Calcula 2^(i-1) grãos para o i-ésimo quadro
+    total_graos += graos_quadros; // Adiciona o número de grãos do quadro atual ao total
+    i++; // Incrementa o contador de quadros
+  }while (i <= quadros); // Repete enquanto o contador de quadros for menor ou igual ao número de quadros
+
+  //exibe o resultado
+  printf("Total de grãos: %.0f\n", total_graos);
+  
+  return 0;
+}
+
+ex3
+
+#include <stdio.h>
+
+int main() {
+    // Loop de 1 a 100
+    for (int i = 1; i <= 100; i++) {
+        printf("%d", i); // Imprime o número atual
+
+        // Verifica se o número atual é um múltiplo de 10
+        if (i % 10 == 0) {
+            printf(" - Múltiplo de 10\n"); // Emite a mensagem se for um múltiplo de 10
+        } else {
+            printf("\n"); // Pula uma linha se não for múltiplo de 10
+        }
+    }
+
+    return 0;
+}
+
+ex4
+
+#include <stdio.h>
+
+int main() {
+    int M;
+
+    // Solicita o valor de M ao usuário
+    printf("Digite o valor de M: ");
+    scanf("%d", &M);
+
+    // Loop para imprimir M linhas
+    for (int i = 1; i <= M; i++) {
+        // Loop para imprimir N asteriscos na linha atual
+        for (int j = 1; j <= i; j++) {
+            printf("*");
+        }
+        printf("\n"); // Pula para a próxima linha após imprimir os asteriscos
+    }
+
+    return 0;
+}
