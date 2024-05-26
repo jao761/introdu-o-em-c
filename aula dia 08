@@ -1,0 +1,190 @@
+EX 10.1
+
+#include <stdio.h> 
+
+int main(){
+  int num1 [10];
+  int num2 [10];
+  int soma[10];
+  int i;
+  printf("Digite 10 numeros para vetor1: ");
+  for(i = 0; i < 10; i++){
+    scanf("%d", &num1[i]);
+  }
+
+  printf("Digite 10 numeros para vetor2: ");
+  for(i = 0; i < 10; i++){
+    scanf("%d", &num2[i]);
+  }
+  printf("Vetor soma: ");
+  for(int i = 0; i < 10; i++){
+    soma[i] = num1[i] + num2[i];
+    printf("%i ", soma[i]);
+  }
+
+  return 0;
+}
+
+EX 10.2
+
+#include <stdio.h>
+
+int main() {
+    float num[20];
+    float R = 0;
+    int i = 0;
+    char op;
+    printf("Digite os numeros: ");
+    for(i = 0; i < 20; i++){
+        scanf("%f", &num[i]);
+        printf("Digite a operacao: ");
+        scanf(" %c", &op); // Notice the space before %c to consume any leading whitespace characters
+
+        if(op == '+'){
+            R += num[i];
+        } else if (op == '-'){
+            R -= num[i]; 
+        } else if (op == '*'){
+            R *= num[i];
+        } else if (op == '/'){
+            if (num[i] != 0){
+                R /= num[i];
+            } else {
+                printf("Erro divisao por 0\n");
+                return 1;
+            }
+        } else {
+            printf("Operacao invalida\n");
+            return 1;
+        }
+    }
+    printf("%.2f\n", R);
+
+    return 0;
+}
+
+EX 10.3
+
+#include <stdio.h>
+
+int main() {
+    float num[20];
+    float R[2]; // Inicialize R
+    int i;
+    char op;
+
+    printf("Digite um número: ");
+    for(i = 0; i < 20; i++) {
+        scanf("%f", &num[i]); // Remova as quebras de linha desnecessárias \n\n
+
+        if(i == 0) {
+            R[i] = num[i]; // Inicialize R com o primeiro número
+        } else {
+            printf("Digite a operação: ");
+            scanf(" %c", &op);
+            if(op == '+') {
+                R[i] = R[i-1] + num[i];
+            } else if(op == '-') {
+                R[i] = R[i-1] - num[i];
+            } else if (op == '*') {
+                R[i] = R[i-1] * num[i];
+            } else if(op == '/') {
+                if(num[i] != 0) {
+                    R[i] = R[i-1] / num[i];
+                } else {
+                    printf("Divisão por zero não é permitida.\n");
+                    return 1;
+                }
+            } else {
+                printf("Operação inválida\n");
+                return 1; // Se a operação for inválida, saia do programa
+            }
+        }
+    }
+
+    printf("O resultado é: %.2f\n", R[1]); // Imprima o resultado final
+
+    int numero_encontrado;
+    printf("Digite o número que deseja ser encontrado: ");
+    scanf("%d", &numero_encontrado);
+
+    for(i = 0; i < 20; i++){
+       if (R[i] == numero_encontrado){ // Compare com os números originais
+           printf("O número %d foi encontrado na posição %d\n", numero_encontrado, i);
+       }
+    }
+
+    return 0;
+}
+
+EX10.4
+
+#include <stdio.h>
+
+int main() {
+    float num[5];
+    float R[5]; // Inicialize R
+    int i;
+    char op;
+
+    int tamanho = sizeof(num) / sizeof(num[0]);
+    int numero_encontrado;
+
+    int inicio = 0;
+    int fim = tamanho - 1;
+
+    int encontrado = -1;
+
+    printf("Digite um número: ");
+    for(i = 0; i < 5; i++) {
+        scanf("%f", &num[i]); // Remova as quebras de linha desnecessárias \n\n
+
+        if(i == 0) {
+            R[i] = num[i]; // Inicialize R com o primeiro número
+        } else {
+            printf("Digite a operação: ");
+            scanf(" %c", &op);
+            if(op == '+') {
+                R[i] = R[i-1] + num[i];
+            } else if(op == '-') {
+                R[i] = R[i-1] - num[i];
+            } else if (op == '*') {
+                R[i] = R[i-1] * num[i];
+            } else if(op == '/') {
+                if(num[i] != 0) {
+                    R[i] = R[i-1] / num[i];
+                } else {
+                    printf("Divisão por zero não é permitida.\n");
+                    return 1;
+                }
+            } else {
+                printf("Operação inválida\n");
+                return 1; // Se a operação for inválida, saia do programa
+            }
+        }
+    }
+
+    printf("O resultado é: %.2f\n", R[1]); // Imprima o resultado final
+
+    printf("numero a ser encontrado: ");
+    scanf("%d", &numero_encontrado);
+
+    while(inicio <= fim){
+        int meio = inicio + (fim - inicio) / 2;
+
+        if(num[meio] == numero_encontrado) {
+            encontrado = meio;
+            break;
+        } else {
+            fim = meio -1;
+        }
+    }
+
+    if(encontrado != -1){
+        printf("O número %d foi encontrado na posição %d\n", numero_encontrado, encontrado); 
+    } else {
+        printf("O elemento %d não foi encontrado\n", numero_encontrado);
+    }
+
+    return 0;
+}
