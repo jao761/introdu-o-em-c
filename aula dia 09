@@ -1,0 +1,51 @@
+#include <stdio.h>  // necessário para as funções de input e output
+#include <stdlib.h> // necessário para as funções "rand()" e "srand()"
+#include <time.h>   // necessário para usar a hora atual na geração da semente
+
+#define TAMANHO 6
+
+void bubbleSort(int arr[], int n) {
+    int i, j, temp;
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Troca os elementos
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int numeros[TAMANHO];
+    int i;
+
+    // Semente para gerar um número aleatório
+    srand(time(0));
+
+    // Sorteia números entre 1 e 60 (incluindo o 60)
+    for (i = 0; i < TAMANHO; i++) {
+        numeros[i] = rand() % 60 + 1;
+    }
+
+    // Mostra os números sorteados
+    printf("Números sorteados: ");
+    for (i = 0; i < TAMANHO; i++) {
+        printf("%d ", numeros[i]);
+    }
+    printf("\n");
+
+    // Ordena os números
+    bubbleSort(numeros, TAMANHO);
+
+    // Mostra os números ordenados
+    printf("Números ordenados: ");
+    for (i = 0; i < TAMANHO; i++) {
+        printf("%d ", numeros[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
